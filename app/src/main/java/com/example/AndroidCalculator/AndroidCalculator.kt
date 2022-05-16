@@ -360,10 +360,11 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
                 }
             }
 //百分之
-            R.id.button_pc -> if (et.contains("+") ||
-                et.contains("-") ||
-                et.contains("×") ||
-                et.contains("÷")
+            R.id.button_pc -> if ((et.contains("+") ||
+                        et.contains("-") ||
+                        et.contains("×") ||
+                        et.contains("÷")) &&
+                !et.contains("E")
             ) {
                 if (et[et.length - 1] == '+' ||
                     et[et.length - 1] == '-' ||
@@ -394,8 +395,6 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
                     var per = et.toDouble()
                     per = per / 100
                     var per1 = "" + per
-                    per1 = per1.replace("0+?$".toRegex(), "")
-                    per1 = per1.replace("[.]$".toRegex(), "")
                     flag_c = true
                     editText.setText(per1)
                 } else {
@@ -421,17 +420,20 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
                     var per = et.toDouble()
                     per = per / 100
                     var per1 = "" + per
-                    per1 = per1.replace("0+?$".toRegex(), "")
-                    per1 = per1.replace("[.]$".toRegex(), "")
                     flag_c = true
                     editText.setText(per1)
                 }
+            } else if (et.contains("E-8") || et.contains("E-9")) {
+                Toast.makeText(
+                    this@AndroidCalculator,
+                    "这数可能太小了",
+                    Toast.LENGTH_SHORT
+                ).show()
+                editText.setText("0")
             } else {
                 var per = et.toDouble()
                 per = per / 100
-                var per1 = "" + per
-                per1 = per1.replace("0+?$".toRegex(), "")
-                per1 = per1.replace("[.]$".toRegex(), "")
+                var per1 = per.toString()
                 flag_c = true
                 editText.setText(per1)
             }
