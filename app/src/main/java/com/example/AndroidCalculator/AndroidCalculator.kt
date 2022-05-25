@@ -38,7 +38,6 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
     var flag_r = true
     var flag_t = false
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.first_layout)
@@ -201,10 +200,6 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
                     et += "."
                     flag_r = false
                     editText.setText(et)
-//            } else if(flag_r&&flag_d){
-//                et += "."
-//                editText.setText(et)
-
                 } else if ((et[et.length - 1] == '+' ||
                             et[et.length - 1] == '-' ||
                             et[et.length - 1] == '×' ||
@@ -502,7 +497,6 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
                     }
                     editText.setText(et)
                 }
-                ////
                 if (et.contains(".")) {
                     Toast.makeText(
                         this@AndroidCalculator,
@@ -628,7 +622,6 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
                     flag_c = true
                     editText.setText(et)
                 }
-
                 if (et[0] == '-') {
                     Toast.makeText(
                         this@AndroidCalculator,
@@ -723,18 +716,6 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
                     .show()
             }
         }
-//        if(et[et.length - 1] == '.'){
-//            flag_r=false
-//            flag_d=true
-//        }else if(
-//            et[et.length - 1] == '-'||
-//            et[et.length - 1] == '+'||
-//            et[et.length - 1] == '×'||
-//            et[et.length - 1] == '÷'
-//        ){
-//            flag_d=false
-//            flag_r=true
-//        }
     }
 
 
@@ -862,5 +843,4 @@ class AndroidCalculator : AppCompatActivity(), View.OnClickListener {
         }
         return stack.pop()
     }
-
 }
